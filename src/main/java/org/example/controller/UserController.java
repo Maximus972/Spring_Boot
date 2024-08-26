@@ -12,7 +12,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping("/")
     public String listUsers(Model model) {
         model.addAttribute("listUsers", userService.findAll());
         return "users";  // Thymeleaf шаблон
@@ -27,13 +27,13 @@ public class UserController {
     @PostMapping("/user/save")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.save(user);
-        return "redirect:/users";
+        return "redirect:/";
     }
 
     @PostMapping("/user/delete")
     public String deleteUser(@RequestParam("id") Long id) {
         userService.delete(id);
-        return "redirect:/users";
+        return "redirect:/";
     }
 
     @PostMapping("/user/edit")

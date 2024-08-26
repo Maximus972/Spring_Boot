@@ -17,7 +17,11 @@ public class UserDao {
     }
 
     public void save(User user) {
-        entityManager.persist(user);
+        if (user.getId() == null) {
+            entityManager.persist(user);
+        } else {
+            entityManager.merge(user);
+        }
     }
 
     public User findById(Long id) {
