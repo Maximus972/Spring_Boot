@@ -18,6 +18,7 @@ public class UserController {
         return "users";  // Thymeleaf шаблон
     }
 
+
     @GetMapping("/user/add")
     public String showAddUserForm(Model model) {
         model.addAttribute("user", new User());
