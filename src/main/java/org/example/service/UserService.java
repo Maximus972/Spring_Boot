@@ -25,16 +25,11 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public User findById(Long id) {
-        return userDao.findById(id);
-    }
-
-    @Transactional
-    public void update(User user) {
-        userDao.update(user);
+        return userDao.getById(id);
     }
 
     @Transactional
     public void delete(Long id) {
-        userDao.delete(id);
+        userDao.deleteById(id);
     }
 }
